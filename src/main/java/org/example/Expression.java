@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Expression {
 	private final List<Double> operands = new ArrayList<>();
-	private final List<String> units = new ArrayList<>();
+	private final List<MeasureUnit> units = new ArrayList<>();
 	private final List<Character> operators = new ArrayList<>();
 
-	public void addOperand(double operand, String unit) {
+	public void addOperand(double operand, MeasureUnit unit) {
 		operands.add(operand);
 		units.add(unit);
 	}
@@ -21,7 +21,7 @@ public class Expression {
 		return operands;
 	}
 
-	public List<String> getUnits() {
+	public List<MeasureUnit> getUnits() {
 		return units;
 	}
 

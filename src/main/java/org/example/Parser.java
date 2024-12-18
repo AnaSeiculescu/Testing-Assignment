@@ -21,7 +21,8 @@ public class Parser {
 
 				if (currentNumber.length() > 0 && currentUnit.length() > 0) {
 					double value = Double.parseDouble(currentNumber.toString());
-					expression.addOperand(value, currentUnit.toString());
+					MeasureUnit unit = MeasureUnit.valueOf(currentUnit.toString().toUpperCase());
+					expression.addOperand(value, unit);
 				}
 				expression.addOperator(currentChar);
 
@@ -31,7 +32,8 @@ public class Parser {
 		}
 		if (currentNumber.length() > 0 && currentUnit.length() > 0) {
 			double value = Double.parseDouble(currentNumber.toString());
-			expression.addOperand(value, currentUnit.toString());
+			MeasureUnit unit = MeasureUnit.valueOf(currentUnit.toString().toUpperCase());
+			expression.addOperand(value, unit);
 		}
 
 		return expression;
