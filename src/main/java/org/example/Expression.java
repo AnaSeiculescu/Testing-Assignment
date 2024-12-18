@@ -28,4 +28,13 @@ public class Expression {
 	public List<Character> getOperators() {
 		return operators;
 	}
+
+	@Override
+	public String toString() {
+		return "Expression{" +
+				"operands=" + operands +
+				", units=" + units +
+				", operators=" + operators +
+				'}';
+	}
 }

@@ -10,6 +10,8 @@ public class App
         String input = "2km + 500m - 5000dm";
         Expression expression = Parser.parseExpression(input);
 
+        System.out.println(expression.getOperands());
+
         MetricCalculator calculator = new MetricCalculator();
         double resultInMeters = calculator.calculate(expression);
 
