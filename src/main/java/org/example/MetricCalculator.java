@@ -12,6 +12,8 @@ public class MetricCalculator {
 		List<MeasureUnit> units = expression.getUnits();
 		List<Character> operators = expression.getOperators();
 
+		//  if the first character from the input was a subtraction operator, this will fail without the boolean
+
 		double result = convertToMeters(operands.get(0), units.get(0));
 
 		for (int i = 1; i < operands.size(); i++) {
@@ -23,6 +25,13 @@ public class MetricCalculator {
 			} else {
 				result -= valueInMeters;
 			}
+		}
+
+		if(Parser.isFirstMinus) {
+			double firstOperand = convertToMeters(operands.get(0), units.get(0));
+			firstOperand = firstOperand;
+			result = result;
+			return result -= (firstOperand * 2);
 		}
 		return result;
 	}
