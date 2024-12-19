@@ -2,8 +2,6 @@ package org.example;
 
 public class Parser {
 
-	public static boolean isFirstMinus = false;
-
 	public static Expression parseExpression(String input) {
 		Expression expression = new Expression();
 
@@ -14,14 +12,16 @@ public class Parser {
 			return null;
 		}
 
-		String noWhiteSpacesInput = input.replaceAll("\\s", "");
+		String noSpacesInput = input.replaceAll("\\s", "");
+		String refactorizedInput = noSpacesInput;
 
-		if (noWhiteSpacesInput.charAt(0) == '-') {
-			isFirstMinus = true;
+		if (noSpacesInput.charAt(0) == '-') {
+			currentNumber.append(noSpacesInput.charAt(0));
+			refactorizedInput = noSpacesInput.substring(1);
 		}
 
-		for (int i = 0; i < noWhiteSpacesInput.length(); i++) {
-			char currentChar = noWhiteSpacesInput.charAt(i);
+		for (int i = 0; i < refactorizedInput.length(); i++) {
+			char currentChar = refactorizedInput.charAt(i);
 
 			if (Character.isDigit(currentChar) || currentChar == '.') {
 				currentNumber.append(currentChar);

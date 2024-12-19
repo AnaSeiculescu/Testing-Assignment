@@ -94,7 +94,7 @@ public class ParserTest {
 	}
 
 	@Test
-	public void testParseExpressionWithInput() {
+	public void testParseExpressionWithLongerInput() {
 		// prepare
 		input = "- 20dm + 5m - 4000mm + 80dm";
 

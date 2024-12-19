@@ -9,7 +9,18 @@ public class MetricCalculatorTest{
 	MetricCalculator calculator = new MetricCalculator();
 
 	@Test
-	public void testCalculate() {
+	public void testCalculateRegularInput() {
+		input = "20dm + 5m - 1000mm + 80dm";
+
+		Expression expression = Parser.parseExpression(input);
+		double expectedResult = 14.0;
+		double actualResult = calculator.calculate(expression);
+
+		assertEquals(expectedResult, actualResult, 0.000);
+	}
+
+	@Test
+	public void testCalculateNegativeFirstOperator() {
 		input = "- 20dm + 5m + 80dm";
 
 		Expression expression = Parser.parseExpression(input);
