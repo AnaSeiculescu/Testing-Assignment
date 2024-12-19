@@ -7,6 +7,7 @@ public class MetricCalculator {
 	private Expression expression;
 
 	public static double calculate(Expression expression) {
+
 		List<Double> operands = expression.getOperands();
 		List<MeasureUnit> units = expression.getUnits();
 		List<Character> operators = expression.getOperators();
@@ -29,6 +30,4 @@ public class MetricCalculator {
 	private static double convertToMeters(Double value, MeasureUnit unit) {
 		return value * unit.getToMeters();
 	}
-
-
 }

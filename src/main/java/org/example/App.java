@@ -11,6 +11,7 @@ public class App
         Expression expression = Parser.parseExpression(input);
 
         System.out.println(expression.getOperands());
+        System.out.println(expression);
 
         MetricCalculator calculator = new MetricCalculator();
         double resultInMeters = calculator.calculate(expression);

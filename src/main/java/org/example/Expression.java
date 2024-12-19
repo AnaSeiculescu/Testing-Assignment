@@ -2,11 +2,21 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Expression {
-	private final List<Double> operands = new ArrayList<>();
-	private final List<MeasureUnit> units = new ArrayList<>();
-	private final List<Character> operators = new ArrayList<>();
+	private List<Double> operands = new ArrayList<>();
+	private List<MeasureUnit> units = new ArrayList<>();
+	private List<Character> operators = new ArrayList<>();
+
+	public Expression() {
+	}
+
+	public Expression(List<Double> operands, List<MeasureUnit> units, List<Character> operators) {
+		this.operands = operands;
+		this.units = units;
+		this.operators = operators;
+	}
 
 	public void addOperand(double operand, MeasureUnit unit) {
 		operands.add(operand);
@@ -37,4 +47,13 @@ public class Expression {
 				", operators=" + operators +
 				'}';
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Expression other = (Expression) o;
+		return Objects.equals(getOperands(), other.getOperands()) && Objects.equals(getUnits(), other.getUnits()) && Objects.equals(getOperators(), other.getOperators());
+	}
+
 }
