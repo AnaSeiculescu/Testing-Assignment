@@ -101,9 +101,9 @@ public class ParserTest {
 		//execute
 		Expression actualResult = Parser.parseExpression(input);
 
-		expectedOperands = List.of(new Double[]{20.0, 5.0, 4000.0, 80.0});
+		expectedOperands = List.of(new Double[]{-20.0, 5.0, 4000.0, 80.0});
 		expectedUnits = List.of(new MeasureUnit[]{DM, M, MM, DM});
-		expectedOperators = List.of(new Character[]{'-', '+', '-', '+'});
+		expectedOperators = List.of(new Character[]{'+', '-', '+'});
 
 		Expression expectedResult = new Expression(
 				expectedOperands, expectedUnits, expectedOperators
